@@ -1,2 +1,3 @@
 old.js
-notifyme.sublime-project
+*.sublime-project
+*.sublime-workspace
