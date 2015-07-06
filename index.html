@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Notify for angular</title>
+    <link rel="stylesheet" href="notifyme.min.css">
+</head>
+
+<body ng-controller="MyController">
+    <div>
+        Hello {{ greetMe }}
+    </div>
+    <button ng-click="click()">Add Notify</button>
+    <notifyme></notifyme>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="angularNotifyme.min.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+    angular.element(document).ready(function() {
+        angular.module('myApp', ['angularNotifyme'])
+            .controller('MyController', ['$scope', "Notifyme", function($scope, Notifyme) {
+                $scope.greetMe = 'World';
+                var i = 0;
+                $scope.click = function() {
+                    var types = ["error", "success", "warning"];
+                    var pos = ["top-left", "bottom-left", "top-right", "bottom-right"];
+                    Notifyme.notify({
+                        type: types[(Math.floor(Math.random() * 10) % types.length)], //required
+                        position: pos[(Math.floor(Math.random() * 10) % pos.length)], // optional
+                        autohide: 1, //(Math.floor(Math.random() * 10) % 2), // optional
+                        message: ("Hello by " + (i += 1)) // required
+                    });
+
+                }
+            }]);
+        angular.bootstrap(document, ['myApp']);
+    });
+    </script>
+</body>
+
+</html>
