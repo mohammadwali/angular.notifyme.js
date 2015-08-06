@@ -111,7 +111,7 @@
             return {
                 restrict: 'AE',
                 replace: true,
-                templateUrl: 'template.html'
+                template: "<div id='notify-wrapper'>    <div ng-controller='NotifymeController'>        <div ng-repeat='noti in notifications' id='notifyme-{{ noti.id }}' class='notifyme-notification notifyme-{{noti.position }} notifyme-{{ noti.type }} notifyme-show'>            <div class='notifyme-wrapper'><i class='notifyme-icon fa' ng-class='{error:'fa-times-circle', success: 'fa-check-circle', warning:'fa-exclamation-triangle'}[noti.type]'></i>                <p>{{ noti.message }}</p>            </div>            <span class='notifyme-close' ng-click='closeNotify(noti.id)'></span>        </div>    </div></div>"
             }
         }]);
 
