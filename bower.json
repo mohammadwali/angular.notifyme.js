@@ -1,6 +1,6 @@
 {
   "name": "angular-notifyme",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/mohammadwali/angular.notifyme.js",
   "authors": [
     "Mohammad Wali <me@mohammadwali.com>"
@@ -10,10 +10,9 @@
   ],
   "dependencies": {
     "angular": "~1.3.0",
-    "angular-notifyme": "~1.0.0"
+    "notify-me": "mohammadwali/notifyme.js#1.0.0"
   },
   "description": "Simple popup alerts",
-  "main": "./angularNotifyme.js",
   "keywords": [
     "alert",
     "angular",
