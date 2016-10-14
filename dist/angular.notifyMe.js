@@ -108,7 +108,7 @@
     });
     console.log("Notify Initialized! Thanks for using %c Notifyme.js ", "background:#7266ba;color:#fff");
 })(window.jQuery, window, document)
-(function (factory, win) {
+!(function (factory, win) {
     if (typeof define === "function" && define.amd) {
         define(["angular", "jquery"], factory);
     } else {

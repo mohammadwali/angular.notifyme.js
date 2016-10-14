@@ -1,4 +1,4 @@
-(function (factory, win) {
+!(function (factory, win) {
     if (typeof define === "function" && define.amd) {
         define(["angular", "jquery"], factory);
     } else {
