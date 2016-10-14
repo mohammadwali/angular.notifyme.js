@@ -6,8 +6,12 @@ var rename = require("gulp-rename");
 var cleanCSS = require('gulp-clean-css');
 var sourcemaps = require('gulp-sourcemaps');
 
-gulp.task("build-js", function (done) {
 
+gulp.task("default", ["clean", "build-js", "build-css"]);
+
+gulp.task("build-js", ["concat-js", "minfiy-js"]);
+
+gulp.task("concat-js", function () {
     return gulp.src([
         "./bower_components/notify-me/notifyme.js",
         "./src/angular.notifyMe.js"
@@ -15,7 +19,6 @@ gulp.task("build-js", function (done) {
         .pipe(concat("angular.notifyMe.js"))
         .pipe(gulp.dest("dist"));
 });
-
 
 gulp.task("minfiy-js", function (done) {
     return gulp.src([
@@ -32,17 +35,14 @@ gulp.task("minfiy-js", function (done) {
 gulp.task("build-css", function (done) {
     return gulp.src([
         "./bower_components/notify-me/notifyme.css"
-    ])  .pipe(sourcemaps.init())
+    ]).pipe(sourcemaps.init())
         .pipe(cleanCSS())
         .pipe(sourcemaps.write())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('dist'));
-        
+
 });
 
 gulp.task("clean", function (done) {
     del(['dist'], done);
 });
-
-
-gulp.task("default", ["clean", "build-js", "minfiy-js", "build-css"]);
